@@ -27,14 +27,20 @@ print df.columns
 #去掉数据中名字和地址，方便以后排序
 df_no_name = df.drop(['eastName','eastUrl'], axis = 1)
 
-#替换所有的%
+#替换所有的%和--
 def clean_num_in_column(column):
     return column.apply(drop_percent_sign)
 
 def drop_percent_sign(state):
-    if state.endswith('%'):
-        return float(state.replace('%',''))
+    if column.endswith('-'):
+        return float(column.replace('-','0'))
+    elif column.endswith('%'):
+        return float(column.replace('%',''))
+
+
 df_drop_percent = df_no_name.apply(clean_num_in_column)
+
+
 
 #去掉空字符
 df = df_drop_percent.dropna()
