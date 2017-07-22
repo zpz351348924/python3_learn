@@ -43,7 +43,7 @@ class Test_proxy(object):
             self.get_work(proxy)
 
     def get_work(self,proxy): #用代理来工作
-        wb_data = requests.get('https://www.baidu.com/', proxies = {'http':proxy})
+        wb_data = requests.get('http://ip.chinaz.com/getip.aspx', proxies = {'http':proxy})
         print wb_data.text
 
 
